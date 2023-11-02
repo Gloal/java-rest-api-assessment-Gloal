@@ -1,10 +1,13 @@
 package com.cbfacademy.apiassessment.model;
 
 public class InvestmentPreferences {
-    private Risk riskTolerance;
     private double investmentAmount;
     private int investmentDuration;
+    private Risk riskTolerance;
     private Goal investmentGoal;
+
+    public InvestmentPreferences(){
+    }
 
     public Risk getRiskTolerance() {
         return riskTolerance;
@@ -30,5 +33,4 @@ public class InvestmentPreferences {
     public void setInvestmentGoal(Goal investmentGoal) {
         this.investmentGoal = investmentGoal;
     }
-
 }

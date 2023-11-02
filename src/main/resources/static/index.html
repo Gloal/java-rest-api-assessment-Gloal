@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Information Form</title>
     <style>
         body {
@@ -14,12 +13,16 @@
         }
         .form {
             margin-bottom: 15px;
+            color:blueviolet
         }
     </style>
 </head>
 <body>
+    <header>
+
+    </header>
     <div class="container">
-        <h1>User Information</h1>
+        <h1>New User Information</h1>
         <form id="customerForm">
             <!--Get customer info-->
             <div class="form">
@@ -54,7 +57,7 @@
             <div class="form">
                 <label for="investmentGoal">Investment Goal:</label>
                 <select id="investmentGoal" name="investmentGoal">
-                    <!--Change to conditional reading of enum values-->
+                    <!--Change to reading from Goal enum values-->
                     <option value="retirement">Retirement</option>
                     <option value="education">Education</option>
                     <option value="wealth_accumulation">Wealth Accumulation</option>
