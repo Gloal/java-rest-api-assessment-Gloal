@@ -21,7 +21,7 @@ public class Customer {
     private String firstName; //editable
     private String lastName; //editable
     private String email; //editable - but must be unique
-    private InvestmentPreferences investmentPreferences; //editable
+ //   private InvestmentPreferences investmentPreferences; //editable
     @CreationTimestamp
     private Date createdDate;
     @UpdateTimestamp
@@ -33,7 +33,7 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.investmentPreferences = investmentPreferences;
+//        this.investmentPreferences = investmentPreferences;
     }
 
     public UUID getId() {
@@ -58,12 +58,12 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
-    public InvestmentPreferences getInvestmentPreferences() {
-        return investmentPreferences;
-    }
-    public void setInvestmentPreferences(InvestmentPreferences investmentPreferences) {
-        this.investmentPreferences = investmentPreferences;
-    }
+    // public InvestmentPreferences getInvestmentPreferences() {
+    //     return investmentPreferences;
+    // }
+    // public void setInvestmentPreferences(InvestmentPreferences investmentPreferences) {
+    //     this.investmentPreferences = investmentPreferences;
+    // }
 
     public Date getCreatedDate(){
         return createdDate;
