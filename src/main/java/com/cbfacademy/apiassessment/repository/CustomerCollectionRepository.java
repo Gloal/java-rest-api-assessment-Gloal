@@ -32,6 +32,7 @@ public class CustomerCollectionRepository {
     }
 
     public CustomerInfo createCustomerInfo(CustomerInfo customerInfo){
+        customerInfoList.add(customerInfo);
         return customerInfo;
     }
 
@@ -39,20 +40,29 @@ public class CustomerCollectionRepository {
         return customerInfoList.stream().filter(c -> c.id().equals(id)).findFirst();
     }
 
-    public CustomerInfo updateCustomerInfo(Long id, CustomerInfo customerInfo) {
+    public boolean existsById(Long id){
+        return customerInfoList.stream().filter(c -> c.id().equals(id)).count() ==1;
+    }
 
+
+    public CustomerInfo updateCustomerInfo(Long id, CustomerInfo customerInfo) {
+            customerInfoList.removeIf(c -> c.id().equals(customerInfo.id()));
+            customerInfoList.add(customerInfo);
         return customerInfo;
     }
  
     public void deleteCustomer(Long id){
-        customerInfoList.remove(customerInfoList.stream().filter(c -> c.id().equals(id)).findFirst());
+        customerInfoList.removeIf(c -> c.id().equals(id));
     }
+
 
     @PostConstruct
     private void init(){
+            //TODO: MAKE ANOTHER CLASS/DATABASE TO HOLD LIST
+
         CustomerInfo ci = new CustomerInfo(
             5L, 
-            "name1", 
+            "name1FROMREPO", 
             "name1", 
             "name1@here.com", 
             Goal.RETIREMENT, 
@@ -60,8 +70,7 @@ public class CustomerCollectionRepository {
             Duration.FIVE_YEARS, 
             StockSymbol.AAA, 
             LocalDateTime.now(), 
-            LocalDateTime.now(), 
-            "htf");
+            LocalDateTime.now());
 
         customerInfoList.add(ci);
     }
