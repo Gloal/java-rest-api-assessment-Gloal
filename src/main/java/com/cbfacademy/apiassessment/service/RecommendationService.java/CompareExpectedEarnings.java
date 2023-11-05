@@ -16,5 +16,7 @@ public interface CompareExpectedEarnings {
 //??? SHould this take in any string and then decide how to serch based on file type later? 
 //??? Or should I implement multiple getExpectedEarnings(csv, symbol) getExpectedEarnings(json, symbol)based on file input - csv or json
 
-
+///Create one implementation for json and another for json
+compareExpectedEarningsCSV
+compareExpectedEarningsJSON
 }
