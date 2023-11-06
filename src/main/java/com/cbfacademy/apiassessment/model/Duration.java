@@ -7,6 +7,7 @@ public enum Duration {
 
     private int yearsValue;
 
+
     Duration(int yearsValue){
         this.yearsValue = yearsValue;
     }
@@ -15,6 +16,7 @@ public enum Duration {
         return yearsValue;
     }
 
+    /* 
     public Duration setYearsValue(int yearsValue){
         switch(yearsValue){
             case 1: return Duration.ONE_YEAR;
@@ -24,4 +26,5 @@ public enum Duration {
                 return Duration.ONE_YEAR;
         }
     }
+    */
 }

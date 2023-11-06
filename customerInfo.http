@@ -1,0 +1,99 @@
+###GET all customer Info
+GET http://localhost:8080/customer
+
+###Get a specific customer by id
+GET http://localhost:8080/customer/1
+
+
+###Get a specific customer by id - invalid id
+GET http://localhost:8080/customer/5
+
+
+
+###Add Another Customer
+POST  http://localhost:8080/customer 
+Content-Type:  application/json 
+
+{
+    "id": 2,
+    "firstName": "name2",
+    "lastName": "name2",
+    "email": "2name2@here.com",
+    "goal": "EDUCATION",
+    "riskLevel": "LOW",
+    "duration": "FIVE_YEARS",
+    "stockSymbol": "BBB",
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
+
+###UPDATE Customer Info - Will return error
+PUT http://localhost:8080/customer/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "firstName": "Updatedname1",
+    "lastName": "name11",
+    "email": "name111@update.com",
+    "goal": "EDUCATION",
+    "riskLevel": "LOW",
+    "duration": "ONE_YEAR",
+    "stockSymbol": "CCC",
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
+###Update Customer Info - will update
+PUT http://localhost:8080/customer/5
+Content-Type: application/json
+
+{
+    "id": 5,
+    "firstName": "Updatedname1",
+    "lastName": "name11",
+    "email": "name111@update.com",
+    "goal": "EDUCATION",
+    "riskLevel": "LOW",
+    "duration": "ONE_YEAR",
+    "stockSymbol": "CCC",
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
+
+###Delete Customer from Database - sucessfully
+DELETE http://localhost:8080/customer/2
+Content-Type: application/json
+
+  {
+    "id": 2,
+    "firstName": "name2",
+    "lastName": "name2",
+    "email": "2name2@here.com",
+    "goal": "EDUCATION",
+    "riskLevel": "LOW",
+    "duration": "FIVE_YEARS",
+    "stockSymbol": "BBB",
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
+###Delete Customer from Database - unsucessfully
+DELETE http://localhost:8080/customer/3
+Content-Type: application/json
+
+  {
+    "id": 3,
+    "firstName": "name2",
+    "lastName": "name2",
+    "email": "2name2@here.com",
+    "goal": "EDUCATION",
+    "riskLevel": "LOW",
+    "duration": "FIVE_YEARS",
+    "stockSymbol": "BBB",
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
