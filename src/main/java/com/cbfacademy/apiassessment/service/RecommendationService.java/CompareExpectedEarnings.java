@@ -19,4 +19,5 @@ public interface CompareExpectedEarnings {
 ///Create one implementation for json and another for csv
 CompareExpectedEarningsCSV
 CompareExpectedEarningsJSON
+
 }

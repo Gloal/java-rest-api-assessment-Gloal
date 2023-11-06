@@ -1,9 +1,5 @@
 package com.cbfacademy.apiassessment.model;
 
-
-//?? Should I leave as strings instead of numbers?
-//getYearsValue will be passed to the stickResource classes
-//Should I convert them here or later?
 public enum Duration {
     ONE_YEAR(1),
     FIVE_YEARS(5),
@@ -11,7 +7,7 @@ public enum Duration {
 
     private int yearsValue;
 
-    
+
     Duration(int yearsValue){
         this.yearsValue = yearsValue;
     }
@@ -31,5 +27,4 @@ public enum Duration {
         }
     }
     */
-
 }
