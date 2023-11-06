@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.cbfacademy.apiassessment.exception.CustomerNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
 import com.cbfacademy.apiassessment.repository.CustomerCollectionRepository;
 
@@ -48,29 +49,36 @@ public class CustomerInfoController {
         return customerCollectionRepository.createCustomerInfo(customerInfo) ;
     }    
     
-    /**Returns Customer by Id*/
+    /**Returns Customer by Id
+     *If sucessful, returns Http Status: 201
+     *If unsucessful, returns HttpStatus: 400
+    */
     @GetMapping("/{id}")
     public CustomerInfo getCustomerById(@PathVariable String id){
         Long idLong = Long.parseLong(id); 
         return customerCollectionRepository.getCustomerById(idLong)
-        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found in database"));
+        .orElseThrow(() -> new CustomerNotFoundException());
     } 
 
+    /**Updates Customer by Id */
     @PutMapping("/{id}")
     public ResponseEntity<CustomerInfo> updateCustomer(@PathVariable String id, @RequestBody CustomerInfo customerInfo){
         if(!customerCollectionRepository.existsById(customerInfo.id())){
-            throw new ResponseStatusException(HttpStatusCode.NOT_FOUND, "Customer does not exist")
+            throw new CustomerNotFoundException();
         }
-        Long idLong = Long.parseLong(id);
-        return ResponseEntity.ok().body(customerCollectionRepository.updateCustomerInfo(idLong, customerInfo));
+      //  Long idLong = Long.parseLong(id);
+        return ResponseEntity.ok().body(customerCollectionRepository.updateCustomerInfo(customerInfo.id(), customerInfo));
     } 
 
-
+    /**Deletes Customer by Id */
     @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable Long id){
-         customerCollectionRepository.deleteCustomer(id);
+    public void deleteCustomer(@PathVariable String id){
+        Long idLong = Long.parseLong(id);
+        if(!customerCollectionRepository.existsById(idLong)){
+            throw new CustomerNotFoundException();
+        }
+         customerCollectionRepository.deleteCustomer(idLong);
     } 
-
 
 
 }
