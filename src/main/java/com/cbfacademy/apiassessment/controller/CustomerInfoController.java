@@ -19,6 +19,8 @@ import com.cbfacademy.apiassessment.exception.CustomerNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
 import com.cbfacademy.apiassessment.repository.CustomerCollectionRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/customer")
@@ -43,7 +45,7 @@ public class CustomerInfoController {
      */
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public CustomerInfo createCustomer(@RequestBody CustomerInfo customerInfo) {
+    public CustomerInfo createCustomer(@Valid @RequestBody CustomerInfo customerInfo) {
         return customerCollectionRepository.createCustomerInfo(customerInfo);
     }
 
@@ -71,7 +73,7 @@ public class CustomerInfoController {
      */
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void updateCustomer(@PathVariable String id, @RequestBody CustomerInfo customerInfo) {
+    public void updateCustomer(@PathVariable String id, @Valid @RequestBody CustomerInfo customerInfo) {
         if (!customerCollectionRepository.existsById(customerInfo.id())) {
             throw new CustomerNotFoundException();
         }
@@ -88,7 +90,7 @@ public class CustomerInfoController {
      */
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable String id) {
+    public void deleteCustomer(@Valid @PathVariable String id) {
         Long idLong = Long.parseLong(id);
         if (!customerCollectionRepository.existsById(idLong)) {
             throw new CustomerNotFoundException();
