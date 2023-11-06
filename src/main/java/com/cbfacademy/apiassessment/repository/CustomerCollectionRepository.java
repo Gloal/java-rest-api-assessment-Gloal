@@ -45,10 +45,9 @@ public class CustomerCollectionRepository {
     }
 
 
-    public CustomerInfo updateCustomerInfo(Long id, CustomerInfo customerInfo) {
+    public void updateCustomerInfo(Long id, CustomerInfo customerInfo) {
             customerInfoList.removeIf(c -> c.id().equals(customerInfo.id()));
             customerInfoList.add(customerInfo);
-        return customerInfo;
     }
  
     public void deleteCustomer(Long id){
