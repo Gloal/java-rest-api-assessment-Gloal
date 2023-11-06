@@ -23,7 +23,7 @@ class AppTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;
-
+	//change the end POINT HERE
 	@BeforeEach
 	public void setUp() throws Exception {
 		this.base = new URL("http://localhost:" + port + "/greeting");

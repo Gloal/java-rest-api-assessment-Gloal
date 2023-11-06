@@ -4,4 +4,4 @@ public enum Goal {
     RETIREMENT,
     EDUCATION,
     WEALTH_ACCUMULATION
-}
+  }
