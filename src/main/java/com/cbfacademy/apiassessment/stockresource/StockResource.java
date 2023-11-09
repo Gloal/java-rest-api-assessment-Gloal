@@ -12,7 +12,7 @@ public class StockResource {
     private String API_KEY = "B3PJYO5FGGUYSWVC";
     private File stockSymbolResource;
     private  List<StockSymbol> stockSymbolList;
-    private String apiRequestS;
+    private String apiRequests;
 
 
 

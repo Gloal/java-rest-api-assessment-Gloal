@@ -21,10 +21,9 @@ POST  http://localhost:8080/customer
 Content-Type:  application/json 
 
 {
-    "id": 2,
-    "firstName": "name22",
-    "lastName": "name22",
-    "email": "2name2@here.com",
+    "firstName": "name223",
+    "lastName": "name223",
+    "email": "2name2@here3.com",
     "goal": "EDUCATION",
     "riskLevel": "LOW",
     "duration": "FIVE_YEARS",

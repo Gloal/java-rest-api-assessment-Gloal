@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment.service.RecommendationService.java;
+package com.cbfacademy.apiassessment.service.RecommendationService;
 
 import java.io.File;
 
@@ -17,7 +17,7 @@ public interface CompareExpectedEarnings {
 //??? Or should I implement multiple getExpectedEarnings(csv, symbol) getExpectedEarnings(json, symbol)based on file input - csv or json
 
 ///Create one implementation for json and another for csv
-CompareExpectedEarningsCSV
-CompareExpectedEarningsJSON
+//CompareExpectedEarningsCSV
+//CompareExpectedEarningsJSON
 
 }

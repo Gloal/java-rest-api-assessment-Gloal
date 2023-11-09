@@ -2,6 +2,7 @@ package com.cbfacademy.apiassessment.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cbfacademy.apiassessment.exception.CustomerNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
-import com.cbfacademy.apiassessment.repository.CustomerCollectionRepository;
+import com.cbfacademy.apiassessment.service.CustomerInfoService;
 
 import jakarta.validation.Valid;
 
@@ -26,16 +27,19 @@ import jakarta.validation.Valid;
 @RequestMapping("/customer")
 public class CustomerInfoController {
 
-    private final CustomerCollectionRepository customerCollectionRepository;
+    @Autowired
+    private CustomerInfoService customerInfoService;
 
-    public CustomerInfoController(CustomerCollectionRepository repository) {
-        this.customerCollectionRepository = repository;
+
+    public CustomerInfoController(CustomerInfoService customerInfoService) {
+        this.customerInfoService = customerInfoService;
     }
 
     /** Rertuns all customers in the database */
     @GetMapping("")
     public List<CustomerInfo> getAllCustomerInfos() {
-        return customerCollectionRepository.getAllCustomerInfos();
+        System.out.println(customerInfoService.getAllCustomerInfos().stream().findFirst());
+        return customerInfoService.getAllCustomerInfos();
     }
 
     /**
@@ -46,7 +50,7 @@ public class CustomerInfoController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public CustomerInfo createCustomer(@Valid @RequestBody CustomerInfo customerInfo) {
-        return customerCollectionRepository.createCustomerInfo(customerInfo);
+        return customerInfoService.createCustomer(customerInfo);
     }
 
     /**
@@ -60,7 +64,7 @@ public class CustomerInfoController {
     @GetMapping("/{id}")
     public CustomerInfo getCustomerById(@PathVariable String id) {
         Long idLong = Long.parseLong(id);
-        return customerCollectionRepository.getCustomerById(idLong)
+        return customerInfoService.getCustomerById(idLong)
                 .orElseThrow(() -> new CustomerNotFoundException());
     }
 
@@ -74,11 +78,12 @@ public class CustomerInfoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     public void updateCustomer(@PathVariable String id, @Valid @RequestBody CustomerInfo customerInfo) {
-        if (!customerCollectionRepository.existsById(customerInfo.id())) {
+            Long idLong = Long.parseLong(id);
+            /* 
+        if (customerInfoService.getCustomerById(idLong).isEmpty()) {
             throw new CustomerNotFoundException();
-        }
-        // Long idLong = Long.parseLong(id);
-        customerCollectionRepository.updateCustomerInfo(customerInfo.id(), customerInfo);
+        } else customerInfoService.updateCustomerInfo(customerInfo.id(), customerInfo); */
+         customerInfoService.updateCustomerInfo(idLong, customerInfo) ;
     }
 
     /**
@@ -92,10 +97,10 @@ public class CustomerInfoController {
     @DeleteMapping("/{id}")
     public void deleteCustomer(@Valid @PathVariable String id) {
         Long idLong = Long.parseLong(id);
-        if (!customerCollectionRepository.existsById(idLong)) {
+        if (customerInfoService.getCustomerById(idLong).isEmpty()) {
             throw new CustomerNotFoundException();
         }
-        customerCollectionRepository.deleteCustomer(idLong);
+        customerInfoService.deleteCustomer(idLong);
     }
 
 }
