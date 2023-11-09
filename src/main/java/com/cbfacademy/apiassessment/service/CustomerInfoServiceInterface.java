@@ -10,6 +10,6 @@ public interface CustomerInfoServiceInterface {
     public CustomerInfo createCustomer(CustomerInfo customerInfo);
     void deleteCustomer(Long id);
     List<CustomerInfo> getAllCustomerInfos();
-    public Optional<CustomerInfo> getCustomerById(Long id);
+    public CustomerInfo getCustomerById(Long id);
     void updateCustomerInfo(Long id, CustomerInfo customerInfo);
 }

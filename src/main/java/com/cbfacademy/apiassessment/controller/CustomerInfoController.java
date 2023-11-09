@@ -64,9 +64,7 @@ public class CustomerInfoController {
     @GetMapping("/{id}")
     public CustomerInfo getCustomerById(@PathVariable String id) {
         Long idLong = Long.parseLong(id);
-        return customerInfoService.getCustomerById(idLong)
-                .orElseThrow(() -> new CustomerNotFoundException());
-    }
+        return customerInfoService.getCustomerById(idLong);    }
 
     /**
      * Updates Customer by Id

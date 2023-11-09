@@ -1,26 +1,22 @@
 package com.cbfacademy.apiassessment.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+//TODO: Create ANOTHER EXCEPTION FOR ITEMS THAT ARE NOT VALID LONG DATAYPES
 
-@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="Customer id supplied does not exist in the database")
 public class CustomerNotFoundException extends RuntimeException{
 
-    private static final long serialVersionUID = 1L;
+    private static final String message = "Customer with supplied id does not exist";
 
-    //TODO: CHANGE TO THIS MESSAGE
-   /*  
-   CustomerNotFoundException(Long id){
-        super("Could not find customer with id: "+id+" in database.");
+    public CustomerNotFoundException(){
+        super(message);
+        }
+
+    public CustomerNotFoundException(Throwable cause){
+        super(message, cause);
     }
 
-    in the controller class it is called as follows:
+    @Override
+    public String getMessage(){
+        return "Customer with supplied id does not exist";
+    }
 
-    @ResponseBody
-    @ExceptionHandler(CustomerNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    String employeeNotFoundHandler(EmployeeNotFoundException ex) {
-      return ex.getMessage();
-    } 
-    */
 }

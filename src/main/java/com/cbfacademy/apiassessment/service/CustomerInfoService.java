@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
+import com.cbfacademy.apiassessment.exception.CustomerNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
 import com.cbfacademy.apiassessment.repository.CustomerCollectionRepository;
 
@@ -21,9 +22,11 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
     @Autowired
     private CustomerCollectionRepository customerCollectionRepository;
 
+    /* 
     private static final Logger log = LoggerFactory.getLogger(CustomerInfoService.class);
 
-    /* 
+    
+
     Put some dummy values in the database to start
     @Bean
     CommandLineRunner initDatabase(CustomerCollectionRepository customerCollectionRepository){
@@ -44,9 +47,12 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
     }
 
     @Override
-    public Optional<CustomerInfo> getCustomerById(Long id) {
-        return customerCollectionRepository.findById(id);
-    }
+    public CustomerInfo getCustomerById(Long id) {
+        if (customerCollectionRepository.findById(id).isEmpty()){
+            throw new CustomerNotFoundException();
+        }
+        return customerCollectionRepository.findById(id).get();
+        }
 
     @Override
     public CustomerInfo createCustomer(CustomerInfo customerInfo) {
