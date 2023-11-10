@@ -38,6 +38,9 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
 
     @Override
     public void deleteCustomer(Long id) {
+        if (customerCollectionRepository.findById(id).isEmpty()){
+            throw new CustomerNotFoundException();
+        }
         customerCollectionRepository.deleteById(id);
     }
 
@@ -61,8 +64,10 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
 
     @Override
     public void updateCustomerInfo(Long id, CustomerInfo customerInfo) {
-        
-        CustomerInfo customerToUpdate = getCustomerById(id).orElseThrow();
+        if (customerCollectionRepository.findById(id).isEmpty()){
+            throw new CustomerNotFoundException();
+        }
+        CustomerInfo customerToUpdate = getCustomerById(id);
             customerToUpdate.setFirstName(customerInfo.getFirstName());
             customerToUpdate.setFirstName(customerInfo.getFirstName());
             customerToUpdate.setEmail(customerInfo.getEmail());

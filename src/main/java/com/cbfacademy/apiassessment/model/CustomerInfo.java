@@ -24,7 +24,7 @@ public class CustomerInfo {
     private String lastName;
     @NotEmpty
     @Email
-    //must return for more specific email validation using regular expressions
+    //TODO: more specific email validation using regular expressions
     private String email;
     // @UniqueElements - to make sure all elemts in the investment preferences list is unique
     // InvestmentPreferences investmentPreferences;
@@ -51,7 +51,7 @@ public class CustomerInfo {
             //TODO: FIND OUT WHY %s doesnt work but %S does
             //%s returns an error: [Request processing failed: java.util.MissingFormatArgumentException: Format specifier '%s'] with root cause
             //%S works fine
-            "Customer id=%d, firstName=%S, lastName=%S ", id, firstName, lastName);
+            "   {Customer id=%d, firstName=%S, lastName=%S }", id, firstName, lastName);
     } 
  
     public Long id() {
