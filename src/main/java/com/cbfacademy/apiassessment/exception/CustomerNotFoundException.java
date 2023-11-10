@@ -1,11 +1,23 @@
 package com.cbfacademy.apiassessment.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+//TODO: Create ANOTHER EXCEPTION FOR ITEMS THAT ARE NOT VALID LONG DATAYPES
+//TODO: EXCEPTION FOR DATA TYPES THAT RETURN HTTP:STATUS_CODE 500 - INTERNAL SERVER ERROR
 
-@ResponseStatus(value=HttpStatus.NOT_FOUND, reason = "Customer does not exist in database")
 public class CustomerNotFoundException extends RuntimeException{
 
-    private static final long serialVersionUID = 1L;
+    private static final String message = "Customer with supplied id does not exist";
+
+    public CustomerNotFoundException(){
+        super(message);
+        }
+
+    public CustomerNotFoundException(Throwable cause){
+        super(message, cause);
+    }
+
+    @Override
+    public String getMessage(){
+        return "Customer with supplied id does not exist";
+    }
 
 }

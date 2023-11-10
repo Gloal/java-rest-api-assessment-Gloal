@@ -1,10 +1,11 @@
 package com.cbfacademy.apiassessment.model;
 
+
 public class InvestmentPreferences {
   
     private double investmentAmount;
     private int investmentDuration;
-    private Risk riskTolerance;
+    private RiskLevel riskTolerance;
     private Goal investmentGoal;
 
 

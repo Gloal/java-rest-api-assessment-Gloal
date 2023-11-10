@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment.stockresource;
+package com.cbfacademy.apiassessment.service.RecommendationService;
 
 public interface MaximumDrawdown {
 

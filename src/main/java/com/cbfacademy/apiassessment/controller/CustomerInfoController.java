@@ -2,7 +2,10 @@ package com.cbfacademy.apiassessment.controller;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,25 +18,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cbfacademy.apiassessment.exception.CustomerNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
-import com.cbfacademy.apiassessment.repository.CustomerCollectionRepository;
+import com.cbfacademy.apiassessment.response.ResponseHandler;
+import com.cbfacademy.apiassessment.service.CustomerInfoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/customer")
 public class CustomerInfoController {
 
-    private final CustomerCollectionRepository customerCollectionRepository;
+    @Autowired
+    private CustomerInfoService customerInfoService;
 
-    public CustomerInfoController(CustomerCollectionRepository repository) {
-        this.customerCollectionRepository = repository;
+
+    public CustomerInfoController(CustomerInfoService customerInfoService) {
+        this.customerInfoService = customerInfoService;
     }
 
-    /** Rertuns all customers in the database */
+    /** Returns all customers in the database */
     @GetMapping("")
-    public List<CustomerInfo> getAllCustomerInfos() {
-        return customerCollectionRepository.getAllCustomerInfos();
+    public ResponseEntity<Object> getAllCustomerInfos() {
+        System.out.println(customerInfoService.getAllCustomerInfos().stream().findFirst());
+        return ResponseHandler.responseBuilder("All customers", HttpStatus.OK, customerInfoService.getAllCustomerInfos());
     }
 
     /**
@@ -43,8 +51,8 @@ public class CustomerInfoController {
      */
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public CustomerInfo createCustomer(@RequestBody CustomerInfo customerInfo) {
-        return customerCollectionRepository.createCustomerInfo(customerInfo);
+    public CustomerInfo createCustomer(@Valid @RequestBody CustomerInfo customerInfo) {
+        return customerInfoService.createCustomer(customerInfo);
     }
 
     /**
@@ -56,10 +64,10 @@ public class CustomerInfoController {
      */
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public CustomerInfo getCustomerById(@PathVariable String id) {
+    public ResponseEntity<Object> getCustomerById(@PathVariable String id) {
         Long idLong = Long.parseLong(id);
-        return customerCollectionRepository.getCustomerById(idLong)
-                .orElseThrow(() -> new CustomerNotFoundException());
+        return ResponseHandler.responseBuilder("Customers by ID", HttpStatus.OK, customerInfoService.getCustomerById(idLong));
+        //return customerInfoService.getCustomerById(idLong);    }
     }
 
     /**
@@ -67,16 +75,13 @@ public class CustomerInfoController {
      * <p>
      * If successful, returns Http Status.NO_CONTENT -> Code: 204
      * <p>
-     * If unsuccessful, returns HttpStatus.NOT FOUND -> Code: 404
+     * If unsuccessful, returns HttpStatus.NOT FOUND -> Code: 404 or IllegalArguementException if null
      */
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void updateCustomer(@PathVariable String id, @RequestBody CustomerInfo customerInfo) {
-        if (!customerCollectionRepository.existsById(customerInfo.id())) {
-            throw new CustomerNotFoundException();
-        }
-        // Long idLong = Long.parseLong(id);
-        customerCollectionRepository.updateCustomerInfo(customerInfo.id(), customerInfo);
+    public void updateCustomer(@PathVariable String id, @Valid @RequestBody CustomerInfo customerInfo) {
+            Long idLong = Long.parseLong(id);
+         customerInfoService.updateCustomerInfo(idLong, customerInfo) ;
     }
 
     /**
@@ -88,12 +93,9 @@ public class CustomerInfoController {
      */
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable String id) {
+    public void deleteCustomer(@Valid @PathVariable String id) {
         Long idLong = Long.parseLong(id);
-        if (!customerCollectionRepository.existsById(idLong)) {
-            throw new CustomerNotFoundException();
-        }
-        customerCollectionRepository.deleteCustomer(idLong);
+        customerInfoService.deleteCustomer(idLong);
     }
 
 }
