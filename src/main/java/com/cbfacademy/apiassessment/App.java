@@ -8,7 +8,9 @@ import org.apache.logging.log4j.message.ReusableMessage;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +22,9 @@ import aj.org.objectweb.asm.TypeReference;
 
 import com.cbfacademy.apiassessment.model.PastEarnings;
 
-
+@EntityScan(
+        basePackageClasses = {App.class, Jsr310JpaConverters.class}
+)
 
 @SpringBootApplication
 @RestController

@@ -15,4 +15,6 @@ public interface PastEarningsServiceInterface {
     public void addToDatabase(String filepath);
     public Iterable<PastEarnings> getPastFiveYearsQuarterlyEarnings();
 
+    //TODO: CHANGE THESE METHODS TO METHODS THAT HANDLE PASTEARNINGS E.g CALCULATE VOLATILITY, AVERAGE CHANGE, ANYTHING ELSE THAT WILL BE PASSED TO THE FRONT
+
 }

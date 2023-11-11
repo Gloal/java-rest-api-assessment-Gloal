@@ -1,61 +1,45 @@
 package com.cbfacademy.apiassessment.model;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import java.util.List;
 
-@Entity
 public class PastEarnings {
 
-    @Id
-    long id;
-    private StockSymbol stockSymbol;
-    @Embedded
-    private PastEarningsAnnual annualEarnings;
-    @Embedded
-    private PastEarningsQuarterly quarterlyEarnings;
+    private Symbol symbol;
+    private List<PastEarningsAnnual> annualEarnings;
+    private List<PastEarningsQuarterly> quarterlyEarnings;
 
     public PastEarnings(){}
 
-    public PastEarnings(long id, StockSymbol stockSymbol, PastEarningsAnnual annualEarnings,
-            PastEarningsQuarterly quarterlyEarnings) {
-        this.id = id;
-        this.stockSymbol = stockSymbol;
+    public PastEarnings(Symbol symbol, List<PastEarningsAnnual> annualEarnings,
+            List<PastEarningsQuarterly> quarterlyEarnings) {
+        this.symbol = symbol;
         this.annualEarnings = annualEarnings;
         this.quarterlyEarnings = quarterlyEarnings;
     }
 
-    public long getId() {
-        return id;
+
+    public Symbol getSymbol() {
+        return symbol;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
     }
 
-    public StockSymbol getStockSymbol() {
-        return stockSymbol;
-    }
-
-    public void setStockSymbol(StockSymbol stockSymbol) {
-        this.stockSymbol = stockSymbol;
-    }
-
-    public PastEarningsAnnual getAnnualEarnings() {
+    public List<PastEarningsAnnual> getAnnualEarnings() {
         return annualEarnings;
     }
 
-    public void setAnnualEarnings(PastEarningsAnnual annualEarnings) {
+    public void setAnnualEarnings(List<PastEarningsAnnual> annualEarnings) {
         this.annualEarnings = annualEarnings;
     }
 
-    public PastEarningsQuarterly getQuarterlyEarnings() {
+    public List<PastEarningsQuarterly> getQuarterlyEarnings() {
         return quarterlyEarnings;
     }
 
-    public void setQuarterlyEarnings(PastEarningsQuarterly quarterlyEarnings) {
+    public void setQuarterlyEarnings(List<PastEarningsQuarterly> quarterlyEarnings) {
         this.quarterlyEarnings = quarterlyEarnings;
     }
-    
     
 }

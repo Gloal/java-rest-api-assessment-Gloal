@@ -27,7 +27,7 @@ Content-Type:  application/json
     "email": "name111@here111.com",
     "investmentPreferences":  {
       "investmentAmount": 1000.00,
-      "duration": "ONE_YEARS",
+      "duration": "ONE_YEAR",
       "riskTolerance": "LOW",
       "investmentGoal":"EDUCATION",
       "chosenStockSymbol": "AAA"
@@ -35,6 +35,8 @@ Content-Type:  application/json
     "createdDate": "2023-11-03T04:21:42.26759",
     "updatedDate": "2023-11-03T04:21:42.267609"
   }
+
+
 ###Add Another Customer
 POST  http://localhost:8080/customer 
 Content-Type:  application/json 
@@ -44,7 +46,7 @@ Content-Type:  application/json
     "lastName": "name222",
     "email": "name222@here222.com",
     "investmentPreferences":  {
-      "investmentAmount": 2000.00,
+      "investmentAmount": 2000,
       "duration": "FIVE_YEARS",
       "riskTolerance": "HIGH",
       "investmentGoal":"RETIREMENT",
@@ -64,7 +66,7 @@ Content-Type:  application/json
     "lastName": "name333",
     "email": "name233@here333.com",
     "investmentPreferences":  {
-      "investmentAmount": 33000.00,
+      "investmentAmount": 33000,
       "duration": "TEN_YEARS",
       "riskTolerance": "HIGH",
       "investmentGoal":"EDUCATION",
@@ -82,9 +84,9 @@ Content-Type: application/json
 {
     "firstName": "name11updated",
     "lastName": "name111",
-    "email": "name111@here111.com",
+    "email": "name111@hereup111.com",
     "investmentPreferences":  {
-      "investmentAmount": 1000.00,
+      "investmentAmount": 1011,
       "duration": "FIVE_YEARS",
       "riskTolerance": "LOW",
       "investmentGoal":"RETIREMENT",
@@ -104,7 +106,7 @@ Content-Type: application/json
     "email": "name555@here555.com",
     "investmentPreferences":  {
       "investmentAmount": 5500.00,
-      "duration": "ONE_YEARS",
+      "duration": "ONE_YEAR",
       "riskTolerance": "LOW",
       "investmentGoal":"EDUCATION",
       "chosenStockSymbol": "DDD"

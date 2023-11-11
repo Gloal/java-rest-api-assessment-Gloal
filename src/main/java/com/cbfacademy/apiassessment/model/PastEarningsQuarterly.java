@@ -2,78 +2,72 @@ package com.cbfacademy.apiassessment.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Embeddable;
-
-@Embeddable
 public class PastEarningsQuarterly {
-    LocalDate quarterlyFiscalDateEnding;
-    LocalDate quarterlyReportedDate;
-    Double quarterlyReportedEPS;
-    Double quarterlyEstimaatedEPS;
-    Double quarterlySuprise;
-    Double quarterlySuprisePercentage;
+    LocalDate fiscalDateEnding;
+    LocalDate reportedDate;
+    Double reportedEPS;
+    Double estimatedEPS;
+    Double surprise;
+    Double surprisePercentage;
 
     public PastEarningsQuarterly(){}
 
-    public PastEarningsQuarterly(LocalDate quarterlyFiscalDateEnding, LocalDate quarterlyReportedDate,
-            Double quarterlyReportedEPS, Double quarterlyEstimaatedEPS, Double quarterlySuprise,
-            Double quarterlySuprisePercentage) {
-        this.quarterlyFiscalDateEnding = quarterlyFiscalDateEnding;
-        this.quarterlyReportedDate = quarterlyReportedDate;
-        this.quarterlyReportedEPS = quarterlyReportedEPS;
-        this.quarterlyEstimaatedEPS = quarterlyEstimaatedEPS;
-        this.quarterlySuprise = quarterlySuprise;
-        this.quarterlySuprisePercentage = quarterlySuprisePercentage;
+    public PastEarningsQuarterly(LocalDate fiscalDateEnding, LocalDate reportedDate,
+            Double reportedEPS, Double estimatedEPS, Double surprise,
+            Double surprisePercentage) {
+        this.fiscalDateEnding = fiscalDateEnding;
+        this.reportedDate = reportedDate;
+        this.reportedEPS = reportedEPS;
+        this.estimatedEPS = estimatedEPS;
+        this.surprise = surprise;
+        this.surprisePercentage = surprisePercentage;
     }
 
-    public LocalDate getQuarterlyFiscalDateEnding() {
-        return quarterlyFiscalDateEnding;
+    public LocalDate getFiscalDateEnding() {
+        return fiscalDateEnding;
     }
 
-    public void setQuarterlyFiscalDateEnding(LocalDate quarterlyFiscalDateEnding) {
-        this.quarterlyFiscalDateEnding = quarterlyFiscalDateEnding;
+    public void setFiscalDateEnding(LocalDate fiscalDateEnding) {
+        this.fiscalDateEnding = fiscalDateEnding;
     }
 
-    public LocalDate getQuarterlyReportedDate() {
-        return quarterlyReportedDate;
+    public LocalDate getReportedDate() {
+        return reportedDate;
     }
 
-    public void setQuarterlyReportedDate(LocalDate quarterlyReportedDate) {
-        this.quarterlyReportedDate = quarterlyReportedDate;
+    public void setReportedDate(LocalDate reportedDate) {
+        this.reportedDate = reportedDate;
     }
 
-    public Double getQuarterlyReportedEPS() {
-        return quarterlyReportedEPS;
+    public Double getReportedEPS() {
+        return reportedEPS;
     }
 
-    public void setQuarterlyReportedEPS(Double quarterlyReportedEPS) {
-        this.quarterlyReportedEPS = quarterlyReportedEPS;
+    public void setReportedEPS(Double reportedEPS) {
+        this.reportedEPS = reportedEPS;
     }
 
-    public Double getQuarterlyEstimaatedEPS() {
-        return quarterlyEstimaatedEPS;
+    public Double getEstimatedEPS() {
+        return estimatedEPS;
     }
 
-    public void setQuarterlyEstimaatedEPS(Double quarterlyEstimaatedEPS) {
-        this.quarterlyEstimaatedEPS = quarterlyEstimaatedEPS;
+    public void setEstimatedEPS(Double estimatedEPS) {
+        this.estimatedEPS = estimatedEPS;
     }
 
-    public Double getQuarterlySuprise() {
-        return quarterlySuprise;
+    public Double getSurprise() {
+        return surprise;
     }
 
-    public void setQuarterlySuprise(Double quarterlySuprise) {
-        this.quarterlySuprise = quarterlySuprise;
+    public void setSurprise(Double surprise) {
+        this.surprise = surprise;
     }
 
-    public Double getQuarterlySuprisePercentage() {
-        return quarterlySuprisePercentage;
+    public Double getSurprisePercentage() {
+        return surprisePercentage;
     }
 
-    public void setQuarterlySuprisePercentage(Double quarterlySuprisePercentage) {
-        this.quarterlySuprisePercentage = quarterlySuprisePercentage;
-    }
-
-
-
+    public void setSurprisePercentage(Double surprisePercentage) {
+        this.surprisePercentage = surprisePercentage;
+    }  
 }

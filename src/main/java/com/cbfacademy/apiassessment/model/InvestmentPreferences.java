@@ -14,17 +14,17 @@ public class InvestmentPreferences {
     private RiskLevel riskTolerance;
     @Enumerated(EnumType.STRING)
     private Goal investmentGoal;
-    private StockSymbol chosenStockSymbol;
+    private Symbol chosenSymbol;
 
     public InvestmentPreferences(){}
 
     public InvestmentPreferences(double investmentAmount, com.cbfacademy.apiassessment.model.Duration duration,
-            RiskLevel riskTolerance, Goal investmentGoal, StockSymbol chosenStockSymbol) {
+            RiskLevel riskTolerance, Goal investmentGoal, Symbol chosenSymbol) {
         this.investmentAmount = investmentAmount;
         this.duration = duration;
         this.riskTolerance = riskTolerance;
         this.investmentGoal = investmentGoal;
-        this.chosenStockSymbol = chosenStockSymbol;
+        this.chosenSymbol = chosenSymbol;
     }
 
     public double getInvestmentAmount() {
@@ -59,12 +59,12 @@ public class InvestmentPreferences {
         this.investmentGoal = investmentGoal;
     }
 
-    public StockSymbol getChosenStockSymbol() {
-        return chosenStockSymbol;
+    public Symbol getChosenSymbol() {
+        return chosenSymbol;
     }
 
-    public void setChosenStockSymbol(StockSymbol chosenStockSymbol) {
-        this.chosenStockSymbol = chosenStockSymbol;
+    public void setChosenSymbol(Symbol chosenSymbol) {
+        this.chosenSymbol = chosenSymbol;
     }
 
     

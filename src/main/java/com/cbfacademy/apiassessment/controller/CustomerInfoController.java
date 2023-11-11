@@ -38,10 +38,11 @@ public class CustomerInfoController {
     }
 
     /** Returns all customers in the database */
+
     @GetMapping("")
-    public ResponseEntity<Object> getAllCustomerInfos() {
+    public List<CustomerInfo> getAllCustomerInfos() {
         System.out.println(customerInfoService.getAllCustomerInfos().stream().findFirst());
-        return ResponseHandler.responseBuilder("All customers", HttpStatus.OK, customerInfoService.getAllCustomerInfos());
+        return customerInfoService.getAllCustomerInfos();
     }
 
     /**
@@ -49,25 +50,26 @@ public class CustomerInfoController {
      * <p>
      * Returns HTTPStatus.CREATED -> Code 201
      */
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public CustomerInfo createCustomer(@Valid @RequestBody CustomerInfo customerInfo) {
-        return customerInfoService.createCustomer(customerInfo);
+    public ResponseEntity<Object> createCustomer(@Valid @RequestBody CustomerInfo customerInfo) {
+        return ResponseHandler.responseBuilder("Created Customer", HttpStatus.CREATED, customerInfoService.createCustomer(customerInfo));
     }
 
     /**
      * Returns Customer by Id
      * <p>
-     * If successful, returns Http Status.OK -> Code: 200
+     * If successful, returns Http Status.OK and Portion of the created opbect with Id
      * <p>
      * If unsuccessful, returns HttpStatus.NOT FOUND -> Code: 404
      */
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getCustomerById(@PathVariable String id) {
-        Long idLong = Long.parseLong(id);
-        return ResponseHandler.responseBuilder("Customers by ID", HttpStatus.OK, customerInfoService.getCustomerById(idLong));
-        //return customerInfoService.getCustomerById(idLong);    }
+    public ResponseEntity<Object> getCustomerById(@Valid @PathVariable String id) {
+        //TODO: WRAP THIS IN TRY CATCH TO CATCH 500 error and return 400
+        //TODO: add validation see:spring - validating path variablea dna request parameners - websire: reflectoring.io
+        
+            Long idLong = Long.parseLong(id);
+            return ResponseHandler.responseBuilder("Customers by ID", HttpStatus.OK, customerInfoService.getCustomerById(idLong));  
     }
 
     /**

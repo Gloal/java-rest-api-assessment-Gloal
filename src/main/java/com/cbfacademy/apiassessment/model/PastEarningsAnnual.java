@@ -2,34 +2,31 @@ package com.cbfacademy.apiassessment.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Embeddable;
-
-@Embeddable
 public class PastEarningsAnnual {
-    LocalDate annualFiscalDateEnding;
-    Double anualReportedEPS;
+    LocalDate fiscalDateEnding;
+    Double reportedEPS;
 
     public PastEarningsAnnual(){}
 
-    public PastEarningsAnnual(LocalDate annualFiscalDateEnding, Double anualReportedEPS) {
-        this.annualFiscalDateEnding = annualFiscalDateEnding;
-        this.anualReportedEPS = anualReportedEPS;
+    public PastEarningsAnnual(LocalDate fiscalDateEnding, Double reportedEPS) {
+        this.fiscalDateEnding = fiscalDateEnding;
+        this.reportedEPS = reportedEPS;
     }
 
-    public LocalDate getAnnualFiscalDateEnding() {
-        return annualFiscalDateEnding;
+    public LocalDate getfiscalDateEnding() {
+        return fiscalDateEnding;
     }
 
-    public void setAnnualFiscalDateEnding(LocalDate annualFiscalDateEnding) {
-        this.annualFiscalDateEnding = annualFiscalDateEnding;
+    public void setfiscalDateEnding(LocalDate fiscalDateEnding) {
+        this.fiscalDateEnding = fiscalDateEnding;
     }
 
-    public Double getAnualReportedEPS() {
-        return anualReportedEPS;
+    public Double getreportedEPS() {
+        return reportedEPS;
     }
 
-    public void setAnualReportedEPS(Double anualReportedEPS) {
-        this.anualReportedEPS = anualReportedEPS;
+    public void setreportedEPS(Double reportedEPS) {
+        this.reportedEPS = reportedEPS;
     }
 
 

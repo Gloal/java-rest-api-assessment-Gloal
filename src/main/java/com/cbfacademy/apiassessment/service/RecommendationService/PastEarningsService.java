@@ -3,7 +3,11 @@ package com.cbfacademy.apiassessment.service.RecommendationService;
 import java.io.IOException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.cbfacademy.apiassessment.model.PastEarnings;
+import com.cbfacademy.apiassessment.model.PastEarningsAnnual;
 import com.cbfacademy.apiassessment.repository.PastEarningsRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -15,6 +19,21 @@ public class PastEarningsService implements PastEarningsServiceInterface{
         this.pastEarningsRepository = pastEarningsRepository;
     }
 
+  /*     
+    private static final Logger log = LoggerFactory.getLogger(PastEarningsService.class);
+
+
+    //Put some dummy values in the database to start
+    @Bean
+    CommandLineRunner initDatabase(PastEarningsRepository pastEarningsRepository){
+        return args -> {
+            log.info("Loading "+pastEarningsRepository.save(new PastEarnings(16L, 
+                                                            (new PastEarningsAnnual()),
+                                                            (new PastEarningsAnnual()) )));
+        };
+    }
+    
+ */
     @Override
     public Iterable<PastEarnings> getAllPastEarnings() {
 

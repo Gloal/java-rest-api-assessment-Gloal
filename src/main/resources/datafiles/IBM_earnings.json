@@ -283,7 +283,7 @@
             "surprise": "0.02",
             "surprisePercentage": "0.5882"
         },
-        {
+        { 
             "fiscalDateEnding": "2018-06-30",
             "reportedDate": "2018-07-18",
             "reportedEPS": "3.08",

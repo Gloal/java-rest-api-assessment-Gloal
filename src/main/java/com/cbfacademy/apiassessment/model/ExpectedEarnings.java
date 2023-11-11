@@ -1,7 +1,6 @@
 package com.cbfacademy.apiassessment.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import org.hibernate.validator.constraints.UniqueElements;
 

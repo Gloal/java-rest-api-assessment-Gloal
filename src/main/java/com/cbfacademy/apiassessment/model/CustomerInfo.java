@@ -31,7 +31,7 @@ public class CustomerInfo {
     // @UniqueElements - to make sure all elemts in the investment preferences list is unique
     @Embedded
     InvestmentPreferences investmentPreferences;
-    //TODO: GENERATE AUTOMATIC CRETED AND UPDATED DATES
+    //TODO: GENERATE AUTOMATIC CREATED AND UPDATED DATES
     @DateTimeFormat
     @PastOrPresent
     LocalDateTime createdDate;

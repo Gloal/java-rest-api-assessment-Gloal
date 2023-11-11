@@ -22,20 +22,6 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
     @Autowired
     private CustomerCollectionRepository customerCollectionRepository;
 
-    /* 
-    private static final Logger log = LoggerFactory.getLogger(CustomerInfoService.class);
-
-    
-
-    Put some dummy values in the database to start
-    @Bean
-    CommandLineRunner initDatabase(CustomerCollectionRepository customerCollectionRepository){
-        return args -> {
-            log.info("Loading "+customerCollectionRepository.save(new CustomerInfo("nameRepo", "repos", "hfeu@nie.com")));
-        };
-    }
-    */
-
     @Override
     public void deleteCustomer(Long id) {
         if (customerCollectionRepository.findById(id).isEmpty()){
@@ -51,7 +37,7 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
 
     @Override
     public CustomerInfo getCustomerById(Long id) {
-        if (customerCollectionRepository.findById(id).isEmpty()){
+        if (customerCollectionRepository.findById(id).isEmpty() || id==null){
             throw new CustomerNotFoundException();
         }
         return customerCollectionRepository.findById(id).get();
