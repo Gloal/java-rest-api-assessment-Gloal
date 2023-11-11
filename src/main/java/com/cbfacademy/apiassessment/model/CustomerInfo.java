@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,23 +29,30 @@ public class CustomerInfo {
     //TODO: more specific email validation using regular expressions
     private String email;
     // @UniqueElements - to make sure all elemts in the investment preferences list is unique
-    // InvestmentPreferences investmentPreferences;
-    // Goal goal;
-    // RiskLevel riskLevel;
-    // Duration duration;
-    // StockSymbol stockSymbol;
-    // @DateTimeFormat
-    // @PastOrPresent
-    // LocalDateTime createdDate;
-    // @DateTimeFormat
-    // LocalDateTime updatedDate;
-    CustomerInfo(){}
+    @Embedded
+    InvestmentPreferences investmentPreferences;
+    //TODO: GENERATE AUTOMATIC CREATED AND UPDATED DATES
+    @DateTimeFormat
+    @PastOrPresent
+    LocalDateTime createdDate;
+    @DateTimeFormat
+    LocalDateTime updatedDate;
 
-    public CustomerInfo( @NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty @Email String email) {
+
+    CustomerInfo(){}
+    
+    public CustomerInfo(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty @Email String email,
+            InvestmentPreferences investmentPreferences, @PastOrPresent LocalDateTime createdDate,
+            LocalDateTime updatedDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.investmentPreferences = investmentPreferences;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
     }
+
+
 
     @Override
     public String toString(){
@@ -51,37 +60,84 @@ public class CustomerInfo {
             //TODO: FIND OUT WHY %s doesnt work but %S does
             //%s returns an error: [Request processing failed: java.util.MissingFormatArgumentException: Format specifier '%s'] with root cause
             //%S works fine
-            "   {Customer id=%d, firstName=%S, lastName=%S }", id, firstName, lastName);
+            "   {Customer id=%d, firstName=%S, lastName=%S }" , id, firstName, lastName);
     } 
  
     public Long id() {
         return id;
     }
 
+
+
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
+
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+
+
+    public String getLastName() {
+        return lastName;
+    }
+
+
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+
 
     public String getEmail() {
         return email;
     }
 
- 
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
+    public InvestmentPreferences getInvestmentPreferences() {
+        return investmentPreferences;
+    }
+
+
+
+    public void setInvestmentPreferences(InvestmentPreferences investmentPreferences) {
+        this.investmentPreferences = investmentPreferences;
+    }
+
+
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+
+
+    public LocalDateTime getUpdatedDate() {
+        return updatedDate;
+    }
+
+
+
+    public void setUpdatedDate(LocalDateTime updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
     
 }

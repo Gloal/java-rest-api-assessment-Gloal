@@ -16,53 +16,101 @@ GET http://localhost:8080/customer/er
 ###Get a specific customer by id - invalid id input
 GET http://localhost:8080/customer/7.0
 
+
+###Add One Customer
+POST  http://localhost:8080/customer 
+Content-Type:  application/json 
+
+{
+    "firstName": "name111",
+    "lastName": "name111",
+    "email": "name111@here111.com",
+    "investmentPreferences":  {
+      "investmentAmount": 1000.00,
+      "duration": "ONE_YEAR",
+      "riskTolerance": "LOW",
+      "investmentGoal":"EDUCATION",
+      "chosenStockSymbol": "AAA"
+    } ,
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
+
 ###Add Another Customer
 POST  http://localhost:8080/customer 
 Content-Type:  application/json 
 
 {
-    "firstName": "name223",
-    "lastName": "name223",
-    "email": "2name2@here3.com",
-    "goal": "EDUCATION",
-    "riskLevel": "LOW",
-    "duration": "FIVE_YEARS",
-    "stockSymbol": "BBB",
+    "firstName": "name222",
+    "lastName": "name222",
+    "email": "name222@here222.com",
+    "investmentPreferences":  {
+      "investmentAmount": 2000,
+      "duration": "FIVE_YEARS",
+      "riskTolerance": "HIGH",
+      "investmentGoal":"RETIREMENT",
+      "chosenStockSymbol": "BBB"
+    } ,
     "createdDate": "2023-11-03T04:21:42.26759",
     "updatedDate": "2023-11-03T04:21:42.267609"
   }
 
 
-###UPDATE Customer Info - Will return error
+###Add Another Customer
+POST  http://localhost:8080/customer 
+Content-Type:  application/json 
+
+{
+    "firstName": "name333",
+    "lastName": "name333",
+    "email": "name233@here333.com",
+    "investmentPreferences":  {
+      "investmentAmount": 33000,
+      "duration": "TEN_YEARS",
+      "riskTolerance": "HIGH",
+      "investmentGoal":"EDUCATION",
+      "chosenStockSymbol": "CCC"
+    } ,
+    "createdDate": "2023-11-03T04:21:42.26759",
+    "updatedDate": "2023-11-03T04:21:42.267609"
+  }
+
+
+###UPDATE Customer Info 
 PUT http://localhost:8080/customer/1
 Content-Type: application/json
 
 {
-    "id": 1,
-    "firstName": "Updatedname1",
-    "lastName": "name11",
-    "email": "name111@update.com",
-    "goal": "EDUCATION",
-    "riskLevel": "LOW",
-    "duration": "ONE_YEAR",
-    "stockSymbol": "CCC",
+    "firstName": "name11updated",
+    "lastName": "name111",
+    "email": "name111@hereup111.com",
+    "investmentPreferences":  {
+      "investmentAmount": 1011,
+      "duration": "FIVE_YEARS",
+      "riskTolerance": "LOW",
+      "investmentGoal":"RETIREMENT",
+      "chosenStockSymbol": "AAA"
+    } ,
     "createdDate": "2023-11-03T04:21:42.26759",
     "updatedDate": "2023-11-03T04:21:42.267609"
   }
 
-###Update Customer Info - will update
+###Update Customer Info - will throw error
 PUT http://localhost:8080/customer/5
 Content-Type: application/json
 
 {
-    "id": 5,
-    "firstName": "Updatedname1",
-    "lastName": "name11",
-    "email": "name111@update.com",
-    "goal": "EDUCATION",
-    "riskLevel": "LOW",
-    "duration": "ONE_YEAR",
-    "stockSymbol": "CCC",
+    "firstName": "name555",
+    "lastName": "name555",
+    "email": "name555@here555.com",
+    "investmentPreferences":  {
+      "investmentAmount": 5500.00,
+      "duration": "ONE_YEAR",
+      "riskTolerance": "LOW",
+      "investmentGoal":"EDUCATION",
+      "chosenStockSymbol": "DDD"
+    } ,
     "createdDate": "2023-11-03T04:21:42.26759",
     "updatedDate": "2023-11-03T04:21:42.267609"
   }
@@ -70,35 +118,7 @@ Content-Type: application/json
 
 ###Delete Customer from Database - sucessfully
 DELETE http://localhost:8080/customer/2
-Content-Type: application/json
-
-  {
-    "id": 2,
-    "firstName": "name2",
-    "lastName": "name2",
-    "email": "2name2@here.com",
-    "goal": "EDUCATION",
-    "riskLevel": "LOW",
-    "duration": "FIVE_YEARS",
-    "stockSymbol": "BBB",
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
-  }
 
 ###Delete Customer from Database - unsucessfully
 DELETE http://localhost:8080/customer/3
 Content-Type: application/json
-
-  {
-    "id": 3,
-    "firstName": "name2",
-    "lastName": "name2",
-    "email": "2name2@here.com",
-    "goal": "EDUCATION",
-    "riskLevel": "LOW",
-    "duration": "FIVE_YEARS",
-    "stockSymbol": "BBB",
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
-  }
-

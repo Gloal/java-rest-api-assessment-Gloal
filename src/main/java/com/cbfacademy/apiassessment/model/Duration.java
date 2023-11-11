@@ -1,5 +1,6 @@
 package com.cbfacademy.apiassessment.model;
 
+
 public enum Duration {
     ONE_YEAR(1),
     FIVE_YEARS(5),
@@ -15,6 +16,7 @@ public enum Duration {
     public int getYearsValue(){
         return yearsValue;
     }
+}
 
     /* 
     public Duration setYearsValue(int yearsValue){
@@ -26,5 +28,14 @@ public enum Duration {
                 return Duration.ONE_YEAR;
         }
     }
-    */
+    
+
 }
+
+    public enum Duration {
+        ONE,
+        FIVE,
+        TEN
+    }
+
+*/
