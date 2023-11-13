@@ -1,13 +1,7 @@
 package com.cbfacademy.apiassessment.serviceImpls;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
@@ -61,33 +55,3 @@ public class CustomerInfoService implements CustomerInfoServiceInterface {
             customerCollectionRepository.save(customerToUpdate);
         }
     }
-
-
-   /*  
-public List<CustomerInfo> getAllCustomerInfos(){
-    return customerInfoList;
-}
-
-public CustomerInfo createCustomerInfo(CustomerInfo customerInfo){
-    customerInfoList.add(customerInfo);
-    return customerInfo;
-}
-
-public Optional<CustomerInfo> getCustomerById(Long id){
-    return customerInfoList.stream().filter(c -> c.id().equals(id)).findFirst();
-}
-
-public boolean existsById(Long id){
-    return customerInfoList.stream().filter(c -> c.id().equals(id)).count() ==1;
-}
-
-
-public void updateCustomerInfo(Long id, CustomerInfo customerInfo) {
-        customerInfoList.removeIf(c -> c.id().equals(customerInfo.id()));
-        customerInfoList.add(customerInfo);
-}
-
-public void deleteCustomer(Long id){
-    customerInfoList.removeIf(c -> c.id().equals(id));
-}
- */

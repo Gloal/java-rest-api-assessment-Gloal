@@ -22,7 +22,7 @@ public class PastEarningsService implements PastEarningsServiceInterface{
 
     public PastEarningsService(){
     //TODO: get past data from 5 yrs ago 
-        throw new UnsupportedOperationException("Unimplemented method 'getPastFiveYearsEarnings'");
+        throw new UnsupportedOperationException("Unimplemented method ''");
     }
 
     @Override
@@ -31,6 +31,10 @@ public class PastEarningsService implements PastEarningsServiceInterface{
     }
 
 
+    @Override
+    public Iterable<PastEarnings> getAllPastEarnings(){
+        throw new UnsupportedOperationException("Unimplemented method 'getAllPastEarnings'");
+    }
 
     @Override
     public Iterable<PastEarnings> getPastFiveYearsQuarterlyEarnings() {

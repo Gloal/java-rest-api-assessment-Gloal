@@ -55,7 +55,6 @@ public class ExpectedEarningsService implements ExpectedEarningsServiceInterface
 
         try {
             getEarningsFromCsv(csvFile);
-            System.out.println(expectedEarningsRepository.findAll());
         } catch (Exception e) {
             e.printStackTrace();
         }
