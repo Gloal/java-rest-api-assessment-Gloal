@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment.service.convertdata;
+package com.cbfacademy.apiassessment.utils;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -32,9 +32,7 @@ public class PastEarningsJSONDeserializer extends JsonDeserializer<PastEarnings>
         JsonNode jsonNode = p.getCodec().readTree(p);
 
         JsonNode symbol = jsonNode.get("symbol");
-
         JsonNode pastAnnualEarnings = jsonNode.get("annualEarnings");
-
         JsonNode pastQuarterlyEarnings = jsonNode.get("quarterlyEarnings");
 
         List<PastEarningsAnnual> pastEarningsAnnualsList = new ArrayList<>();

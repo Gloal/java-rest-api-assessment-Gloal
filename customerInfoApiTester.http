@@ -120,5 +120,5 @@ Content-Type: application/json
 DELETE http://localhost:8080/customer/2
 
 ###Delete Customer from Database - unsucessfully
-DELETE http://localhost:8080/customer/3
+DELETE http://localhost:8080/customer/8
 Content-Type: application/json

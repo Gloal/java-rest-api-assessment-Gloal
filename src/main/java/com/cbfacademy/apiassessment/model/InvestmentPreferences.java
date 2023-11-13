@@ -1,10 +1,12 @@
 package com.cbfacademy.apiassessment.model;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 @Embeddable
+//@Entity
 public class InvestmentPreferences {
   
     private double investmentAmount;
