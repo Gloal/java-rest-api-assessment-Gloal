@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment.service;
+package com.cbfacademy.apiassessment.serviceImpls;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.cbfacademy.apiassessment.exception.CustomerNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
 import com.cbfacademy.apiassessment.repository.CustomerCollectionRepository;
+import com.cbfacademy.apiassessment.service.CustomerInfoServiceInterface;
 
 @Configuration
 @Service

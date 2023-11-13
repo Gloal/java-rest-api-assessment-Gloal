@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cbfacademy.apiassessment.model.CustomerInfo;
 import com.cbfacademy.apiassessment.response.ResponseHandler;
-import com.cbfacademy.apiassessment.service.CustomerInfoService;
+import com.cbfacademy.apiassessment.serviceImpls.CustomerInfoService;
 
 import jakarta.validation.Valid;
 
@@ -65,9 +65,10 @@ public class CustomerInfoController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ResponseEntity<Object> getCustomerById(@Valid @PathVariable String id) {
+        //TODO: MUST VALIDATE IF ID IS LONG HERE (if id != long){customerInfo.addAtribute(message, "Please enter a valid integer id"; customerInfo.addAttribute("status", false);}
         //TODO: WRAP THIS IN TRY CATCH TO CATCH 500 error and return 400
         //TODO: add validation see:spring - validating path variablea dna request parameners - websire: reflectoring.io
-        
+        //else{---the code below-----}
             Long idLong = Long.parseLong(id);
             return ResponseHandler.responseBuilder("Customers by ID", HttpStatus.OK, customerInfoService.getCustomerById(idLong));  
     }

@@ -1,6 +1,7 @@
 package com.cbfacademy.apiassessment.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.PastOrPresent;
@@ -20,21 +22,27 @@ public class CustomerInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+
+    @NotEmpty(message="You must enter your first name")
     private String firstName;
+
     @NotEmpty
     private String lastName;
-    @NotEmpty
-    @Email
+
+    @NotEmpty(message = "Email must not be empty")
+    @Email(message = "Email must be valid")
     //TODO: more specific email validation using regular expressions
     private String email;
     // @UniqueElements - to make sure all elemts in the investment preferences list is unique
+
     @Embedded
     InvestmentPreferences investmentPreferences;
     //TODO: GENERATE AUTOMATIC CREATED AND UPDATED DATES
+
     @DateTimeFormat
     @PastOrPresent
     LocalDateTime createdDate;
+
     @DateTimeFormat
     LocalDateTime updatedDate;
 
