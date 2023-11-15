@@ -11,7 +11,7 @@ public class CustomerNotFoundException extends RuntimeException{
         super(message);
         }
 
-    public CustomerNotFoundException(Throwable cause){
+    public CustomerNotFoundException(String message,Throwable cause){
         super(message, cause);
     }
 

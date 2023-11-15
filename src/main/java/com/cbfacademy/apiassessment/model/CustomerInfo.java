@@ -26,7 +26,7 @@ public class CustomerInfo {
     @NotEmpty(message="You must enter your first name")
     private String firstName;
 
-    @NotEmpty
+    @NotEmpty(message="You must enter your lastt name")
     private String lastName;
 
     @NotEmpty(message = "Email must not be empty")

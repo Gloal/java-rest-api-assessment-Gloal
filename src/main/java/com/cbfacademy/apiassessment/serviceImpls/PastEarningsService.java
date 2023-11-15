@@ -1,18 +1,8 @@
 package com.cbfacademy.apiassessment.serviceImpls;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.cbfacademy.apiassessment.model.PastEarnings;
-import com.cbfacademy.apiassessment.model.PastEarningsAnnual;
 import com.cbfacademy.apiassessment.repository.PastEarningsRepo;
 import com.cbfacademy.apiassessment.service.PastEarningsServiceInterface;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class PastEarningsService implements PastEarningsServiceInterface{

@@ -9,6 +9,11 @@ public interface CompareExpectedEarnings {
     /*take in the company symbol, search the csv file for the predicted earnings
     Separated into 6months or 1 year intervals (query API and search CSV result)
     For 5+ yrs of investing, only return 1 year predictions */
+    String Alphavantage_Key = "B3PJYO5FGGUYSWVC";
+
+    String expected3MonthEarningsQuery = "https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=B3PJYO5FGGUYSWVC"
+    String expected12MonthEarningsQuery = "https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=12month&apikey=B3PJYO5FGGUYSWVC"
+
 
     String getApiQueryString(String s, Duration duration);
 

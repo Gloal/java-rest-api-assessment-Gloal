@@ -6,6 +6,7 @@ import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,9 +26,10 @@ import com.cbfacademy.apiassessment.serviceImpls.CustomerInfoService;
 
 import jakarta.validation.Valid;
 
+
 @RestController
 @CrossOrigin
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class CustomerInfoController {
 
     @Autowired
@@ -65,12 +68,8 @@ public class CustomerInfoController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ResponseEntity<Object> getCustomerById(@Valid @PathVariable String id) {
-        //TODO: MUST VALIDATE IF ID IS LONG HERE (if id != long){customerInfo.addAtribute(message, "Please enter a valid integer id"; customerInfo.addAttribute("status", false);}
-        //TODO: WRAP THIS IN TRY CATCH TO CATCH 500 error and return 400
-        //TODO: add validation see:spring - validating path variablea dna request parameners - websire: reflectoring.io
-        //else{---the code below-----}
             Long idLong = Long.parseLong(id);
-            return ResponseHandler.responseBuilder("Customers by ID", HttpStatus.OK, customerInfoService.getCustomerById(idLong));  
+            return ResponseHandler.responseBuilder("Customer by ID", HttpStatus.OK, customerInfoService.getCustomerById(idLong));  
     }
 
     /**
