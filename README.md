@@ -9,10 +9,11 @@ An API that assesses the suitability of a stock for investment based on historic
 - Clone this repository.
 - Ensure you have JDK 17 and Maven installed.
 - Run the application using Maven:
+          Install Dependencies and run
 
-        1. Install dependencies:         ./mvnw clean dependency:resolve
+          ./mvnw clean dependency:resolve
   
-        2. Run:         mvn spring-boot:run
+          mvn spring-boot:run
 
 ## **Usage**
 
