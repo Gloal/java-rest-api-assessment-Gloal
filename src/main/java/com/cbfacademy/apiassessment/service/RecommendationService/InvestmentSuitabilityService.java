@@ -2,10 +2,8 @@ package com.cbfacademy.apiassessment.service.RecommendationService;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.h2.api.JavaObjectSerializer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;

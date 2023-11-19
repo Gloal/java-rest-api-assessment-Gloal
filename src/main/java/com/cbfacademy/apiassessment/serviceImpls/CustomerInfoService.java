@@ -1,6 +1,5 @@
 package com.cbfacademy.apiassessment.serviceImpls;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -12,10 +11,7 @@ import org.springframework.stereotype.Service;
 import com.cbfacademy.apiassessment.exception.IdNotFoundException;
 import com.cbfacademy.apiassessment.exception.SymbolNotFoundException;
 import com.cbfacademy.apiassessment.model.CustomerInfo;
-import com.cbfacademy.apiassessment.model.ExpectedEarnings;
 import com.cbfacademy.apiassessment.model.InvestmentPreferences;
-import com.cbfacademy.apiassessment.model.PastEarnings;
-import com.cbfacademy.apiassessment.model.RiskLevel;
 import com.cbfacademy.apiassessment.repository.CustomerInfoRepository;
 import com.cbfacademy.apiassessment.repository.InvestmentPreferencesRepository;
 import com.cbfacademy.apiassessment.service.CustomerInfoServiceInterface;
