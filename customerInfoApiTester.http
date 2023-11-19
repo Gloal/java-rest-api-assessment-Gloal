@@ -122,7 +122,7 @@ Content-Type: application/json
 DELETE http://localhost:8080/customers/1
 
 ###Delete Investment Preference 2 from Customer 1 - sucessfully
-DELETE http://localhost:8080/customers/2/investment-preferences/3
+DELETE http://localhost:8080/customers/2/investment-preferences/2
 
 ###Delete Customer from Database - unsucessfully
 DELETE http://localhost:8080/customers/88k

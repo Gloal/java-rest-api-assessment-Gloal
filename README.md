@@ -1,4 +1,48 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/iDPpP-d0)
+
+# **Investment Suitability Analysis API**
+
+An API that assesses the suitability of a stock for investment based on historical earnings surprises and expected earnings. It categorizes stocks into risk levels, aligning them with a customer's risk appetite.
+
+## **Installation Instructions**
+
+- Clone this repository.
+- Ensure you have JDK 17 and Maven installed.
+- Run the application using Maven:
+        1. Install dependencies: ./mvnw clean dependency:resolve
+        2. Run: mvn spring-boot:run `mvn spring-boot:run`
+
+## **Usage**
+
+Once the app is running, navigate to [API Documentation](http://localhost:8080/swagger-ui/index.html#/Customers/) to interact with the API endpoints using Swagger.
+
+## **Features**
+
+- Analyzes historical earnings of stocks for the last 5 years.
+- Predicts future earnings to evaluate stock worthiness.
+- Takes Investment Preference stock symbol from customer and uses a binary search algorithm to retrieve the expected earnings
+- Allows customers to change investment preferences and compare other stocks.
+-Allows customers to update their information and store it in a database
+
+## **Contributing Guidelines**
+
+This is an open-source project but not actively maintained. Contributions are not accepted at this time.
+
+## **License**
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Special thanks to CBF and UBS for enabling me to acquire the skills to develop this project.
+
+
+##
+##
+##
+##
+
+
 # **Java API Assessment**
 
 ## **Introduction**
