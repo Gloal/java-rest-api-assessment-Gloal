@@ -11,7 +11,6 @@ import org.springframework.boot.jackson.JsonComponent;
 import com.cbfacademy.apiassessment.model.PastEarnings;
 import com.cbfacademy.apiassessment.model.PastEarningsAnnual;
 import com.cbfacademy.apiassessment.model.PastEarningsQuarterly;
-import com.cbfacademy.apiassessment.model.Symbol;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -34,6 +33,8 @@ public class PastEarningsJSONDeserializer extends JsonDeserializer<PastEarnings>
         JsonNode symbol = jsonNode.get("symbol");
         JsonNode pastAnnualEarnings = jsonNode.get("annualEarnings");
         JsonNode pastQuarterlyEarnings = jsonNode.get("quarterlyEarnings");
+
+        String symString = symbol.get("symbol").asText();
 
         List<PastEarningsAnnual> pastEarningsAnnualsList = new ArrayList<>();
         if (pastAnnualEarnings.isArray()) {
@@ -62,8 +63,7 @@ public class PastEarningsJSONDeserializer extends JsonDeserializer<PastEarnings>
             }
         }
 
-        System.out.println(pastEarningsAnnualsList);
-        return new PastEarnings(Symbol.valueOf(symbol.asText()), pastEarningsAnnualsList, pastEarningsQuarterlyList);
+        return new PastEarnings(symString, pastEarningsAnnualsList, pastEarningsQuarterlyList);
     }
 
     private LocalDate getDate(JsonNode node) {

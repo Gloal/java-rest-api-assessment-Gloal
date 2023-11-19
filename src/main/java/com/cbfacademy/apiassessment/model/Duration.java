@@ -2,21 +2,11 @@ package com.cbfacademy.apiassessment.model;
 
 
 public enum Duration {
-    ONE_YEAR(1),
-    FIVE_YEARS(5),
-    TEN_YEARS(10);
-
-    private int yearsValue;
-
-
-    Duration(int yearsValue){
-        this.yearsValue = yearsValue;
-    }
-
-    public int getYearsValue(){
-        return yearsValue;
-    }
-}
+    
+    ONE_YEAR,
+    FIVE_YEARS,
+    TEN_YEARS
+ }
 
     /* 
     public Duration setYearsValue(int yearsValue){

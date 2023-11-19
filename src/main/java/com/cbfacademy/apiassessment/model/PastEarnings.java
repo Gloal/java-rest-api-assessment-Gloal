@@ -4,25 +4,24 @@ import java.util.List;
 
 public class PastEarnings {
 
-    private Symbol symbol;
+    private String symbol;
     private List<PastEarningsAnnual> annualEarnings;
     private List<PastEarningsQuarterly> quarterlyEarnings;
 
     public PastEarnings(){}
 
-    public PastEarnings(Symbol symbol, List<PastEarningsAnnual> annualEarnings,
+    public PastEarnings(String symbol, List<PastEarningsAnnual> annualEarnings,
             List<PastEarningsQuarterly> quarterlyEarnings) {
         this.symbol = symbol;
         this.annualEarnings = annualEarnings;
         this.quarterlyEarnings = quarterlyEarnings;
     }
 
-
-    public Symbol getSymbol() {
+    public String getSymbol() {
         return symbol;
     }
 
-    public void setSymbol(Symbol symbol) {
+    public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
 
@@ -41,5 +40,4 @@ public class PastEarnings {
     public void setQuarterlyEarnings(List<PastEarningsQuarterly> quarterlyEarnings) {
         this.quarterlyEarnings = quarterlyEarnings;
     }
-    
 }

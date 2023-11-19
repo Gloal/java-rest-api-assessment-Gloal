@@ -9,18 +9,30 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class CustomerInfoHandler {
     
-     @ExceptionHandler(value={CustomerNotFoundException.class})
-     public ResponseEntity<Object> handleCustomerNotFoundExceptions(CustomerNotFoundException customerNotFoundException){
+     @ExceptionHandler(value={IdNotFoundException.class})
+     public ResponseEntity<Object> handleIdNotFoundExceptions(IdNotFoundException IdNotFoundException){
 
             CustomerInfoException customerInfoException = 
                 new CustomerInfoException(
-                    customerNotFoundException.getMessage(),
-                    customerNotFoundException.getCause(), 
+                    IdNotFoundException.getMessage(),
+                    IdNotFoundException.getCause(), 
                     HttpStatus.NOT_FOUND );
             return new ResponseEntity<>(customerInfoException, HttpStatus.NOT_FOUND);
      }
 
      
+     @ExceptionHandler(value={SymbolNotFoundException.class})
+     public ResponseEntity<Object> handleSymbolNotFoundExceptions(SymbolNotFoundException symbolNotFoundException){
+            CustomerInfoException customerInfoException = 
+                new CustomerInfoException(
+                    symbolNotFoundException.getMessage(),
+                    symbolNotFoundException.getCause(), 
+                    HttpStatus.NOT_FOUND );
+            return new ResponseEntity<>(customerInfoException, HttpStatus.NOT_FOUND);
+     }
+
+
+
 
     @ExceptionHandler({NullPointerException.class, NumberFormatException.class})
     public ResponseEntity<Object> handleExceptions(Exception ex){

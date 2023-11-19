@@ -4,17 +4,35 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class ExpectedEarnings {
+import org.hibernate.validator.constraints.UniqueElements;
 
+import com.opencsv.bean.CsvBindByName;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class ExpectedEarningsRepoModel {
+
+    @Id
+    @CsvBindByName
     private String symbol;
+    @CsvBindByName
     private String name;
+    @CsvBindByName
     private LocalDate reportedDate;
+    @CsvBindByName
     private LocalDate fiscalDateEnding;
+    @CsvBindByName
     private BigDecimal estimate;
+    @CsvBindByName
     private String currency;
-    
-    public ExpectedEarnings(String symbol, String name, LocalDate reportedDate, LocalDate fiscalDateEnding,
+
+    public ExpectedEarningsRepoModel() {
+    }
+
+    public ExpectedEarningsRepoModel(@UniqueElements String symbol, String name, LocalDate reportedDate,
+            LocalDate fiscalDateEnding,
             BigDecimal estimate, String currency) {
         this.symbol = symbol;
         this.name = name;
@@ -23,8 +41,8 @@ public class ExpectedEarnings {
         this.estimate = estimate;
         this.currency = currency;
     }
-    
-     public void setSymbol(String symbol) {
+
+    public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
 
@@ -87,6 +105,4 @@ public class ExpectedEarnings {
 
         return new ExpectedEarnings(csvColumns[0], csvColumns[1], reptdDate, fisDateEnding, estimate, csvColumns[5]);
     }
-    
-
 }
