@@ -10,7 +10,7 @@ GET http://localhost:8080/customers/5
 ###Get a specific customer by id - invalid id input
 GET http://localhost:8080/customers/
 
-###Get a specific customer by id - invalid id input
+###Get a specific customer by id - invalid id input 
 GET http://localhost:8080/customers/er
 
 ###Get a specific customer by id - invalid id input
@@ -24,18 +24,19 @@ Content-Type:  application/json
 {
     "firstName": "name111",
     "lastName": "name111",
-    "email": "name111@here111.com",
-    "investmentPreferences":  {
-      "investmentAmount": 1000.00,
-      "duration": "ONE_YEAR",
-      "riskTolerance": "LOW",
-      "investmentGoal":"EDUCATION",
-      "chosenStockSymbol": "AAA"
-    } ,
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
+    "email": "name111@here111.com"
   }
+###Add Investment Preferences for Customer 1
+POST  http://localhost:8080/customers/1/investment-preferences
+Content-Type:  application/json 
 
+{
+      "investmentAmount": 2050,
+      "duration": "TEN_YEARS",
+      "riskTolerance": "MODERATE",
+      "investmentGoal":"RETIREMENT",
+      "chosenSymbol": "GOOGL"
+    } 
 
 ###Add Another Customer
 POST  http://localhost:8080/customers
@@ -44,17 +45,19 @@ Content-Type:  application/json
 {
     "firstName": "name222",
     "lastName": "name222",
-    "email": "name222@here222.com",
-    "investmentPreferences":  {
+    "email": "name222@here222.com"
+  }
+###Add Investment Preferences for Customer 2
+POST  http://localhost:8080/customers/2/investment-preferences
+Content-Type:  application/json 
+
+{
       "investmentAmount": 2000,
       "duration": "FIVE_YEARS",
       "riskTolerance": "HIGH",
       "investmentGoal":"RETIREMENT",
-      "chosenStockSymbol": "BBB"
-    } ,
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
-  }
+      "chosenSymbol": "MGNI"
+    } 
 
 
 ###Add Another Customer
@@ -64,37 +67,45 @@ Content-Type:  application/json
 {
     "firstName": "name333",
     "lastName": "name333",
-    "email": "name233@here333.com",
-    "investmentPreferences":  {
-      "investmentAmount": 33000,
-      "duration": "TEN_YEARS",
-      "riskTolerance": "HIGH",
-      "investmentGoal":"EDUCATION",
-      "chosenStockSymbol": "CCC"
-    } ,
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
+    "email": "name233@here333.com"
   }
 
+###Add Investment Preferences for Customer 2
+POST  http://localhost:8080/customers/2/investment-preferences
+Content-Type:  application/json 
 
-###UPDATE Customer Info 
+{
+      "investmentAmount": 33000,
+      "duration": "TEN_YEARS",
+      "riskTolerance": "LOW",
+      "investmentGoal":"EDUCATION",
+      "chosenSymbol": "AAPL"
+    } 
+
+
+###UPDATE Customer Info for Customer 1
 PUT http://localhost:8080/customers/1
 Content-Type: application/json
 
 {
     "firstName": "name11updated",
     "lastName": "name111",
-    "email": "name111@hereup111.com",
-    "investmentPreferences":  {
-      "investmentAmount": 1011,
-      "duration": "FIVE_YEARS",
-      "riskTolerance": "LOW",
-      "investmentGoal":"RETIREMENT",
-      "chosenStockSymbol": "AAA"
-    } ,
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
+    "email": "name111@hereup111.com"
   }
+
+
+###UPDATE Customer Info for Customer 1 InvestmentPreferences 1
+PUT http://localhost:8080/customers/1/investment-preferences/1
+Content-Type: application/json
+
+{
+      "investmentAmount": 5500.00,
+      "duration": "TEN_YEARS",
+      "riskTolerance": "LOW",
+      "investmentGoal":"EDUCATION",
+      "chosenSymbol": "GOOGL"
+    }
+
 
 ###Update Customer Info - will throw error
 PUT http://localhost:8080/customers/5
@@ -103,25 +114,18 @@ Content-Type: application/json
 {
     "firstName": "name555",
     "lastName": "name555",
-    "email": "name555@here555.com",
-    "investmentPreferences":  {
-      "investmentAmount": 5500.00,
-      "duration": "ONE_YEAR",
-      "riskTolerance": "LOW",
-      "investmentGoal":"EDUCATION",
-      "chosenStockSymbol": "DDD"
-    } ,
-    "createdDate": "2023-11-03T04:21:42.26759",
-    "updatedDate": "2023-11-03T04:21:42.267609"
+    "email": "name555@here555.com"
   }
 
 
 ###Delete Customer from Database - sucessfully
 DELETE http://localhost:8080/customers/1
 
+###Delete Investment Preference 2 from Customer 1 - sucessfully
+DELETE http://localhost:8080/customers/2/investment-preferences/3
+
 ###Delete Customer from Database - unsucessfully
 DELETE http://localhost:8080/customers/88k
-Content-Type: application/json
 
 ###Delete Customer from Database - sucessfully
 DELETE http://localhost:8080/customers/3
