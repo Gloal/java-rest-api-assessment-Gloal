@@ -1,6 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/iDPpP-d0)
 
-# **Investment Suitability Analysis API**
+# **Stock Investment Suitability Analysis API**
 
 An API that assesses the suitability of a stock for investment based on historical earnings surprises and expected earnings. It categorizes stocks into risk levels, aligning them with a customer's risk appetite.
 
@@ -25,7 +25,7 @@ Once the app is running, navigate to [API Documentation](http://localhost:8080/s
 - Predicts future earnings to evaluate stock worthiness.
 - Takes Investment Preference stock symbol from customer and uses a binary search algorithm to retrieve the expected earnings
 - Allows customers to change investment preferences and compare other stocks.
--Allows customers to update their information and store it in a database
+- Allows customers to update their information and store it in a database
 
 ## **Contributing Guidelines**
 
